@@ -59,19 +59,23 @@ public class TankMovement : MonoBehaviour
 
     private void EngineAudio()
 	{
+		
+
 		if (Mathf.Abs (m_MovementInputValue) < 0.1f && Mathf.Abs (m_TurnInputValue) < 0.1f) {
 			if (m_MovementAudio.clip == m_EngineDriving) {
 				m_MovementAudio.clip = m_EngineIdling;
 				m_MovementAudio.pitch = Random.Range (m_OriginalPitch - m_PitchRange, m_OriginalPitch + m_PitchRange);
 				m_MovementAudio.Play ();
+				Debug.Log ("here");
 			}
 		} 
 		else {
 			
-			if (m_MovementAudio.clip == m_EngineDriving) {
-				m_MovementAudio.clip = m_EngineIdling;
+			if (m_MovementAudio.clip == m_EngineIdling) {
+				m_MovementAudio.clip = m_EngineDriving;
 				m_MovementAudio.pitch = Random.Range (m_OriginalPitch - m_PitchRange, m_OriginalPitch + m_PitchRange);
 				m_MovementAudio.Play ();
+				Debug.Log ("here2");
 			}
 			 
 		
